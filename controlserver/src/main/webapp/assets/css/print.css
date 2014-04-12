@@ -1,0 +1,126 @@
+@charset "utf-8";
+
+/*
+ * ============================================
+ * CSS default print stylesheet  - v1.0
+ * by Jakob Bossek - http://www.jakobbossek.de/
+ * ============================================
+ */
+
+/* set page margin on all sites (supported by Chrome 2.0+, IE 8.0+, Opera 6.0+ and Safari 5.0+) */
+@page {
+	margin: 2cm 1.5cm;
+}
+
+/* override default background and foreground colors */
+* {
+	background: transparent !important;
+	color: #000 !important;
+	text-shadow: none !important;
+	box-shadow: none !important;
+	text-align: justify !important;
+}
+
+/* set font to legible serif font */
+body {
+	font: 12pt Georgia, serif;
+	line-height: 1.3;
+	color: #000;
+	background: #fff;
+	/* disable margins and padding. Margins are handled the @page directive above. */
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+/* hide useless parts of the site */
+nav {
+	display: none;
+}
+
+/* avoid page breaks after headlines */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	/* set font family to "default" sans-serif web fonts */
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Arial, Verdana, serif;
+	page-break-after: avoid;
+}
+
+/* handle widows and orphans
+ * Currently supported by Chrome 25+, IE 8+, Opera 9.2+
+ */
+p {
+	orphans: 3;
+	widows: 3;
+}
+
+
+
+/* Restrict images to their maximal size but not bigger than the page width */
+img {
+	max-width: 100% !important	;
+	border: 0;
+}
+
+/* hide elements which are useless on paper */
+video,
+audio,
+embed,
+object {
+	display: none;
+}
+
+/* HANDLE LINKS */
+/* show URLs right after the link in braces */
+p a[href^="http://"]:after,
+p a[href^="https://"]:after {
+	content: " (" attr(href) ")";
+	font-size: 90%;
+	font-style: italic;
+	color: #e0e0e0;
+}
+
+/* hide local anchors */
+p a[href^="#"]:after,
+p a[href^="javascript"]:after {
+	display: none;
+}
+
+a {
+	font-weight: bold;
+	text-decoration: none;
+}
+
+/* allow overlong links to break and thus not to break the layout */
+a {
+	word-wrap: break-word;
+	color: #000;
+}
+
+abbr[title]:after {
+	content: "(" attr(title) ")";
+}
+
+/* specify type of quotes for quotation environments */
+q,
+blockquote {
+	quotes: "\201E" "\201C" "\201A" "\2018";
+}
+
+/* append cite content of cite attribute to quotation environment */
+*[cite]:after {
+	content: close-quote"(Source: " attr(cite) ")";
+}
+
+q:before,
+blockquote:before {
+  content: open-quote;
+ }
+
+q:after,
+blockquote:after {
+	content: close-quote;
+}

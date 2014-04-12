@@ -1,0 +1,51 @@
+<html>
+<head>
+</head>
+<body>
+	<wicket:panel>
+		<h2>Details of log entry</h2>
+		<div wicket:id="container">
+			<table>
+				<tr>
+					<td width="100px"><b>Timestamp:</b></td>
+					<td wicket:id="timestamp" />
+				</tr>
+				<tr>
+					<td width="100px"><b>Channel:</b></td>
+					<td wicket:id="channel" />
+				</tr>
+				<tr>
+					<td width="100px"><b>Logger:</b></td>
+					<td wicket:id="logger" />
+				</tr>
+				<tr>
+					<td width="100px"><b>Threadname:</b></td>
+					<td wicket:id="threadname" />
+				</tr>
+				<div wicket:id="container.error">
+					<tr>
+						<td width="100px"><b>Error Name:</b></td>
+						<td wicket:id="errorname" />
+					</tr>
+					<tr>
+						<td width="100px"><b>Error Message:</b></td>
+						<td wicket:id="errormessage" />
+					</tr>
+					<tr>
+						<td width="100px"><b>Error Stacktrace:</b></td>
+						<td wicket:id="errorstacktrace" />
+					</tr>
+				</div>
+				<tr>
+					<td width="100px"><b>Message:</b></td>
+					<td wicket:id="message" />
+				</tr>
+			</table>
+		</div>
+		<div wicket:id="container.notfound">
+			<p>Log entry can not be found!</p>
+		</div>
+		<a wicket:id="link.back">Back to full log</a>
+	</wicket:panel>
+</body>
+</html>

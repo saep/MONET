@@ -1,0 +1,76 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>monet</groupId>
+		<artifactId>monet</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<packaging>bundle</packaging>
+	<artifactId>dummy</artifactId>
+	<name>${project.artifactId}</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.core</artifactId>
+			<version>5.0.0</version>
+			<scope>provided</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>monet</groupId>
+			<artifactId>worker</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>monet</groupId>
+			<artifactId>controlserver</artifactId>
+			<version>${project.version}</version>
+			<classifier>classes</classifier>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>2.3.7</version>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<!-- BUNDLE CONFIGURATION HERE -->
+						<Bundle-Name>${project.name}</Bundle-Name>
+						<Bundle-Activator>com.github.monet.algorithms.dummy.DummyActivator</Bundle-Activator>
+						<Import-Package>org.osgi.framework,
+							com.github.monet.interfaces,
+							com.github.monet.worker,
+							com.github.monet.aggregators,
+							org.apache.logging.log4j
+						</Import-Package>
+						<Export-Package>
+							com.github.monet.interfaces
+						</Export-Package>
+						<Arity>42</Arity>
+						<Algorithm-Type>dummy</Algorithm-Type>
+						<!-- These fields are used for test cases -->
+						<Empty-Import-Package></Empty-Import-Package>
+						<FaultyVerisonRangeImpossibleBounds-Import-Package>foobar;version="(5,4)"</FaultyVerisonRangeImpossibleBounds-Import-Package>
+						<FaultyVerisonRangeMissingLowerBound-Import-Package>foobar;version="2,3]"</FaultyVerisonRangeMissingLowerBound-Import-Package>
+						<FaultyVerisonRangeMissingUpperBound-Import-Package>foobar;version="(1,1"</FaultyVerisonRangeMissingUpperBound-Import-Package>
+						<FaultyVerisonRangeNoBounds-Import-Package>foobar;version="4,5"</FaultyVerisonRangeNoBounds-Import-Package>
+						<FaultyVersion-Import-Package>foobar;version="wrong"</FaultyVersion-Import-Package>
+						<ProperAnyVersion-Import-Package>foobar</ProperAnyVersion-Import-Package>
+						<ProperSingleVersionComplicated>version="3.6.1-SNAPSHOT77"</ProperSingleVersionComplicated>
+						<ProperSingleVersionSimple>version="2.4"</ProperSingleVersionSimple>
+						<ProperVersionLowerBound>version="[7"</ProperVersionLowerBound>
+						<ProperVersionRange-Import-Package>foobar;version="[1,2)"</ProperVersionRange-Import-Package>
+						<ProperVersionUpperBound>version="7]"</ProperVersionUpperBound>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

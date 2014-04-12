@@ -1,0 +1,32 @@
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.inline-list {
+	list-style: none;
+	margin-left: 0;
+}
+
+.inline-list li {
+	display: inline-block;
+	padding: 0px 5px;
+}
+
+.float-left {
+	float: left;
+	/* fix float bug in IE <= 7 */
+	display: inline;
+}
+
+.float-right {
+	float: right;
+	display: inline;
+}

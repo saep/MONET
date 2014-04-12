@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <title>PG573 WEBAPP GUI - draft</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="cache-control" content="no-cache"/>
+ 	<meta http-equiv="pragma" content="no-cache" />
+  	<meta http-equiv="expires" content="-1" />
+
+    <meta name="author" content="PG573">
+
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js" defer="defer"></script>
+    <![endif]-->
+    <link rel="stylesheet" media="screen" href="assets/css/scaffold.css">
+    <link rel="stylesheet" media="screen" href="assets/css/grid.css">
+    <link rel="stylesheet" media="screen" href="assets/css/main.css">
+    <link rel="stylesheet" media="print" href="assets/css/print.css">
+    <link rel="stylesheet" media="screen" href="assets/css/helper.css">
+
+    <!-- include scripts at the end due to load optimization -->
+    <script src="http://code.jquery.com/jquery.js" charset="UTF-8"></script>
+    <script src="assets/js/jquery.tooltip-1.0.js" charset="UTF-8"></script>
+    <script src="assets/js/canvasExpress/canvasXpress.min.js" charset="UTF-8"></script>
+    <script src="assets/js/enhancements.js" charset="UTF-8"></script>
+  </head>
+  <body>
+    <!-- FIXME: write detailed documentation on the markup -->
+    <!--[if lt IE 7]>
+      <p class="browser-outdated">Doh! You are using an outdated browser. This may lead to faulty presentation and unexpected behavior of the website. Update to a modern browser. We recommend Google Chrome, Opera, Firefox or Safari Browser.</p>
+    <![endif]-->
+
+    <!--nav id="fixed_navigation">
+      <ul>
+        <li><a href="#" class="active" id="fixed_nav_btn_experiments">Experiments</a></li>
+        <li><a href="#" id="fixed_nav_btn_worker">Workers</a></li>
+        <li><a href="#" id="fixed_nav_btn_data_management">Data Management</a></li>
+        <li><a href="#" id="fixed_nav_btn_documentation">Documentation</a></li>
+      </ul>
+    </nav-->
+
+    <header wicket:id="headerPanel">[header]</header>
+
+    <main role="main" id="grid">
+      <div class="grid_row">
+
+        <!-- begin(SIDEBAR) -->
+        <aside wicket:id="sidebarPanel" id="sidebar" class="span_4">[sidebar]</aside>
+        <!-- end(SIDEBAR) -->
+
+        <!-- begin(CONTENT) -->
+        <section id="content" class="span_12" wicket:id="contentPanel">[content]</section>
+        <!-- end(CONTENT) -->
+      </div><!-- end(.grid_row) -->
+    </main>
+    <footer wicket:id="footerPanel"></footer>
+  </body>
+</html>

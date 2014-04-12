@@ -1,0 +1,41 @@
+<html>
+<head>
+</head>
+<body>
+	<wicket:panel>
+
+		<p wicket:id="label.feedback" class="feedbackPanel"></p>
+
+	    <h2>Bundle upload</h2>
+
+	    <p>Use the following form to add upload a new bundle.</p>
+
+		<form wicket:id="form.bundle">
+			<section>
+				<p>
+					<label for="upload_bundle">&nbsp;Select Bundle</label><br>
+					<input type="file" id="upload_bundle" accept=".jar" wicket:id="uploadfield.bundle">
+					<input class="btn" type="submit" value="Upload"/>
+				</p>
+			</section>
+		</form>
+		<br>
+
+		<h2>Graph instance upload</h2>
+		<form wicket:id="form.graph">
+			<section>
+				<p>
+					<label for="graph_name">Graph name</label>
+					<input type="text" id="graph_name" name="graph_name" wicket:id="text.graphname">
+				</p>
+
+				<p>
+					<label for="upload_graph">Select graph</label><br>
+					<input type="file" id="upload_graph" name="upload_graph" wicket:id="uploadfield.graph">
+					<input class="btn" type="submit" value="Upload">
+				</p>
+			</section>
+		</form>
+	</wicket:panel>
+</body>
+</html>

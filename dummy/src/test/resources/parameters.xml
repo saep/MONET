@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+
+<algorithm
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="bundle-description.xsd">
+	<name>SomeAlgorithm</name>
+	<description>
+		This algorithm is super awesome as it has a lot of parameters.
+	</description>
+	<parameters>
+		<parameter name="bla">
+			<description>
+				The name of the algorithm.
+			</description>
+			<choices>
+				<choice value="SSSP">
+					<parameter name="sssp_specific_parameter1">
+						<description>sssp is awesome</description>
+						<integer default="42"/>
+					</parameter>
+					<parameter name="sssp_specific_parameter2">
+						<description>sssp is boring</description>
+						<integer default="4711"/>
+					</parameter>
+				</choice>
+				<choice value="MST">
+					<parameter name="mst_specific_parameter1">
+						<description>mst is awesome</description>
+						<decimal default="3.14159"/>
+					</parameter>
+				</choice>
+			</choices>
+		</parameter>
+		<parameter name="field_of_study">
+			<description>Wurst.</description>
+			<choices>
+				<choice value="Quantenphysik"/>
+				<choice value="Mathematik"/>
+			</choices>
+		</parameter>
+		<parameter name="popsize">
+			<description>
+				Size of the population.
+			</description>
+			<integer default="1"/>
+		</parameter>
+		<parameter name="bound">
+			<description>
+				An integer between -44 and 1.
+			</description>
+			<boundedinteger min="-44"/>
+		</parameter>
+		<parameter name="probability">
+			<description>
+				Really not that probable.
+			</description>
+			<boundeddecimal/>
+		</parameter>
+		<parameter name="seed">
+			<description>
+				A random integer.
+			</description>
+			<integer default="1"/>
+		</parameter>
+		<parameter name="launch_a_nuke">
+			<description>
+				Should this be set to true?
+			</description>
+			<boolean default="true"/>
+		</parameter>
+		<parameter name="pi">
+			<description>
+				Example for a decimal value.
+			</description>
+			<decimal default="3.14159"/>
+		</parameter>
+	</parameters>
+</algorithm>

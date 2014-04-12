@@ -1,0 +1,44 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+</head>
+<body>
+<wicket:panel>
+<div class="clearfix">
+	<a href="#" wicket:id="link.logo.welcome" title="go to dashboard"><h1 id="logo">MONet (Multi Objective Networt Design)</h1></a><!-- logo serves as link to dashboard -->
+	<div class="not_implemented" id="user_menu">
+		Logged in as <em>jboss</em>
+		<a href="#" class="btn" id="btn_user_manage">Manage account</a>
+		<a href="#" class="btn" id="btn_user_logout">Logout</a>
+	</div>
+</div>
+<nav class="main_navigation">
+	<ul>
+		<li id="nav_btn_dashboard"><a title="go to dashboard" wicket:id="link.welcome" href="#">Dashboard</a></li>
+		<li id="nav_btn_experiment">
+		<a wicket:id="link.experiment" href="#">Experiments</a>
+		<ul>
+			<li><a wicket:id="link.experiment.list" href="#">List of experiments</a></li>
+			<li><a wicket:id="link.experiment.add" href="#">Add new experiment</a></li>
+		</ul>
+		</li>
+		<li id="nav_btn_worker"><a wicket:id="link.worker" href="#">Worker</a></li>
+		<li id="nav_btn_data_managament">
+		<a wicket:id="link.datamanagement" href="#">Data Management</a>
+		<ul>
+			<li><a wicket:id="link.datamanagement.upload" href="#">Upload</a></li>
+			<li><a wicket:id="link.datamanagement.bundlelist" href="#">List of unclassified bundles</a></li>
+			<li><a wicket:id="link.datamanagement.algorithmlist" href="#">List of algorithms</a></li>
+			<li><a wicket:id="link.datamanagement.graphbundlelist" href="#">List of graph bundles</a></li>
+			<li><a wicket:id="link.datamanagement.parserbundlelist" href="#">List of parser</a></li>
+			<li><a wicket:id="link.datamanagement.graphlist" href="#">List of graphs</a></li>
+		</ul>
+		</li>
+		<li><a wicket:id="link.documentation" href="#">Documentation</a></li>
+	</ul>
+</nav>
+</wicket:panel>
+</body>
+</html>
+

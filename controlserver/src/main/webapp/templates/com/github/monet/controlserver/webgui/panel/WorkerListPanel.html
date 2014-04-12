@@ -1,0 +1,45 @@
+<html>
+<head>
+</head>
+<body>
+  <wicket:panel>
+    <h2>Overview of workers</h2>
+    <div wicket:id="container.list">
+      <p>Currently there are
+        	<b><wicket:container wicket:id="label.workercount">[number of workers]</wicket:container> worker</b> registered.
+      </p>
+
+      <p class="box box_info">
+      	Workers are the working horses of monet. Each registered worker can execute experiments respectivly the jobs which are associated with a job.
+      	Learn more about workers reading the <a href="#">documentation on workers and experiments</a>.
+      </p>
+
+      <p id="list_view_filter_workers" class="list_view_filter">
+          <b>Filter by state:</b>
+       </p>
+
+          <ul class="list_view" id="list_of_workers">
+            <li wicket:id="list.worker">
+              <span class="state list_item_state" wicket:id="label.state">[worker state]</span>
+
+              <div class="list_item_name">
+                <a class="list_item_link" wicket:id="link.workerdetails"><h4 wicket:id="label.name">[worker name]</h4></a>
+                <p>@<span wicket:id="label.ip">[worker IP number]</span></p>
+                <aside class="list_item_meta">
+                  [CPU: <span wicket:id="label.cpu">[worker CPU]</span>, RAM: <span wicket:id="label.ram">[worker RAM]</span>];
+                  Currently assigned to experiment: <a wicket:id="link.expdetails"><span wicket:id="label.exp.name"></span></a>
+                </aside>
+                <aside class="list_item_actions">
+                    <a class="btn btn_small" wicket:id="link.terminate">Terminate</a>
+              <a class="btn btn_small" wicket:id="link.endjob">End Job</a>
+                </aside>
+            </div>
+            </li>
+          </ul>
+    </div>
+    <div wicket:id="container.listempty">
+      <p>Currently there are no worker registered.</p>
+    </div>
+  </wicket:panel>
+</body>
+</html>

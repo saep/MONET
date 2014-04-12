@@ -1,0 +1,40 @@
+<html>
+<head>
+</head>
+<body>
+  <wicket:panel>
+    <h2>Overview of experiments</h2>
+    <p>Currently there are <b><wicket:container wicket:id="expCount">0</wicket:container> experiments</b> registered. Below you find a list of all experiments. <em>Filter</em> the experiments by state to find your experiment faster.</p>
+        
+        <p class="box box_info">
+          What is an experiment? Check out our detailed documentation <a href="#">on experiments</a>.
+        </p>
+        
+        <p id="list_view_filter_experiments" class="list_view_filter">
+          <b>Search:</b>
+          <input id="input_search_by_name" type="text" value="experiment name">
+          <b>Filter by state:</b>
+          <a id="btn_add_new_experiment" class="btn btn_small btn_important" wicket:id="expNew">Add experiment</a>
+        </p>
+
+        <ul class="list_view" id="list_of_experiments" wicket:id="expListViewTable">
+          <li wicket:id="expListView">
+              <span class="state list_item_state" wicket:id="expState">[experiment state]</span>
+
+              <!--span class="list_item_number">[experiment number]<span wicket:id="expId"></span></span-->
+              <div class="list_item_name">
+                <a class="list_item_link" wicket:id="expLink"><h4 wicket:id="expName">[experiment name]</h4></a>
+                - <p class="list_item_description" wicket:id="expDescription">[experiment description]</p>
+                <aside class="list_item_meta">
+                    Priority is <span wicket:id="expPriority"></span>, currently <span wicket:id="expNumberOfJobs"></span> jobs assigned (on <span wicket:id="expNumberOfAssignedWorkers">[number of assigned workers]</span> workers)
+                </aside>
+                <aside class="list_item_actions">
+                    <a wicket:id="expCancel" class="btn btn_small btn_dangerous" onclick="javascript:if(!confirm('Are you sure? The current progress will be lost.')) return false;")>Cancel</a>
+                    <a wicket:id="expRepeat" class="btn btn_small">Repeat</a>
+                </aside>
+              </div>
+          </li>
+        </ul>
+  </wicket:panel>
+</body>
+</html>

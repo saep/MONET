@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!-- the exported root elements -->
+<xs:element name="algorithm">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="name" type="nonemptystringwithspaces"/>
+			<xs:element name="description" type="descriptionstring"/>
+			<xs:element name="parameters" type="algparameters"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+<xs:element name="graph">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="name" type="nonemptystringwithspaces"/>
+			<xs:element name="description" type="descriptionstring"/>
+			<xs:element name="instances" type="instances"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+
+<!-- BEGIN simple type definitions -->
+<xs:simpleType name="nonemptystring">
+	<xs:restriction base="xs:string">
+		<xs:pattern value="[0-9a-zA-Z_-]+"/>
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="nonemptystringwithspaces">
+	<xs:restriction base="xs:string">
+		<xs:pattern value="[0-9a-zA-Z_-][ 0-9a-zA-Z_-]+"/>
+	</xs:restriction>
+</xs:simpleType>
+
+<!-- A description which may contain html characters for formatting -->
+<xs:simpleType name="descriptionstring">
+	<xs:restriction base="xs:string">
+		<xs:whiteSpace value="collapse"/>
+		<xs:minLength value="4"/>
+	</xs:restriction>
+</xs:simpleType>
+
+<!-- END simple type definitions -->
+
+<!-- BEGIN complex type definitions -->
+
+<!-- <string default="sausages"/> -->
+<xs:complexType name="stringargument">
+	<xs:attribute name="default" use="required"/>
+</xs:complexType>
+
+<!-- <boolean default="true"/> -->
+<xs:complexType name="boolean">
+	<xs:attribute name="default" type="xs:boolean" use="required"/>
+</xs:complexType>
+
+<!-- <integer default="42"/> -->
+<xs:complexType name="integerargument">
+	<xs:attribute name="default" use="required" type="xs:integer"/>
+</xs:complexType>
+
+<!-- <decimal default="3.14"/> -->
+<xs:complexType name="decimal">
+	<xs:attribute name="default" use="required" type="xs:decimal"/>
+</xs:complexType>
+
+<!-- <boundedinteger min="13" max="37"/> -->
+<xs:complexType name="boundedinteger">
+	<xs:attribute name="min" type="xs:integer" default="0"/>
+	<xs:attribute name="minIsInclusive" type="xs:boolean" default="true" use="optional"/>
+	<xs:attribute name="max" type="xs:integer" default="1"/>
+	<xs:attribute name="maxIsInclusive" type="xs:boolean" default="true" use="optional"/>
+	<xs:attribute name="default" use="optional" type="xs:integer" default="1"/>
+</xs:complexType>
+
+<!-- <boundeddecimal min="0.0" max="1.0"/> -->
+<xs:complexType name="boundeddecimal">
+	<xs:attribute name="min" type="xs:decimal" default="0.0"/>
+	<xs:attribute name="minIsInclusive" type="xs:boolean" default="true" use="optional"/>
+	<xs:attribute name="max" type="xs:decimal" default="1.0"/>
+	<xs:attribute name="maxIsInclusive" type="xs:boolean" default="true" use="optional"/>
+	<xs:attribute name="default" use="optional" type="xs:decimal" default="0.5"/>
+</xs:complexType>
+
+<xs:complexType name="choicenode">
+	<xs:sequence>
+		<xs:element name="parameter" type="parameternode" minOccurs="0" maxOccurs="unbounded"/>
+	</xs:sequence>
+	<xs:attribute name="value" type="nonemptystring" use="required"/>
+</xs:complexType>
+
+<xs:complexType name="choices">
+	<xs:sequence>
+		<xs:element name="choice" type="choicenode" minOccurs="1" maxOccurs="unbounded"/>
+	</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="parameternode">
+	<xs:sequence>
+		<xs:element name="description" type="descriptionstring"/>
+		<xs:choice>
+			<xs:element name="string" type="stringargument"/>
+			<xs:element name="integer" type="integerargument"/>
+			<xs:element name="decimal" type="decimal"/>
+			<xs:element name="boundedinteger" type="boundedinteger"/>
+			<xs:element name="boundeddecimal" type="boundeddecimal"/>
+			<xs:element name="boolean" type="boolean"/>
+			<xs:element name="choices" type="choices"/>
+		</xs:choice>
+	</xs:sequence>
+	<xs:attribute name="name" type="nonemptystring" use="required"/>
+</xs:complexType>
+
+<xs:complexType name="algparameters">
+	<xs:sequence>
+		<xs:element name="parameter" type="parameternode" minOccurs="0" maxOccurs="unbounded"/>
+	</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="instances">
+	<xs:sequence>
+		<xs:element name="instance" type="choicenode" minOccurs="1" maxOccurs="unbounded"/>
+	</xs:sequence>
+</xs:complexType>
+</xs:schema>

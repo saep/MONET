@@ -1,0 +1,184 @@
+@charset "utf-8";
+
+/*
+ * ============================================
+ * CSS normalization - v0.1
+ * by Jakob Bossek - http://www.jakobbossek.de/
+ * ============================================
+ */
+
+@viewport {
+  /* browser should scale website to the 100% view */
+  width: device-width;
+  zoom: 1;
+  /* restrict zooming ability to user */
+  minimum-scale: 1;
+  /* enable this if user should not be able to zoom in/out */
+  /* user-zoom: fixed; */
+}
+
+/*
+ * FORCE CORRECT BEHAVIOR OF HTML5 ELEMENTS IN OLDER IE BROWSERS
+ */
+nav,
+header,
+hgroup,
+footer,
+article,
+section,
+summary,
+figure,
+figcaption,
+aside,
+details,
+main {
+  /* force IE 6/7/8/9 to display new html elements as block elements */
+  display: block;
+}
+
+/*
+ * SET DEFAULT SETTINGS FOR REGULARLY USED ELEMENTS
+ */
+html {
+  /* set default system sans-serif font */
+  font-family: sans-serif;
+}
+
+body {
+  /* remove default margin */
+  margin: 0;
+}
+
+pre {
+  /* allow words to break between any two letters */
+  word-break: break-all;
+  /* make it wrap in all browsers */
+  white-space: pre-wrap;
+  /* allow long words to be able to break */
+  word-wrap: break-word;
+}
+
+table {
+  /* remove spacing between cells */
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+fieldset,
+img {
+  border:0;
+}
+
+a:focus {
+  outline: thin dotted;
+}
+
+a:hover,
+a:active {
+  outline: 0;
+}
+
+figure {
+  /* address margin not present in IE 8/9 and Safari 5 */
+  margin: 0;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var,
+optgroup {
+  /* FIXME: do we need this stuff?
+  font-style:inherit;
+  font-weight:inherit; */
+}
+
+/* reset default browser styles for del and ins */
+del,
+ins {
+  text-decoration:none;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+em,
+dfn {
+  font-style:italic;
+}
+
+code {
+  font-family: monospace, sans-serif;
+  font-size: 0.7em;
+}
+
+caption,
+th {
+  text-align: left;
+  vertical-align: top;
+  font-weight: normal;
+}
+
+abbr {
+  border: 0;
+  font-variant: normal;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+  /* indicate helping cursor */
+  cursor: help;
+}
+
+input,
+button,
+textarea,
+select,
+optgroup,
+option {
+  font-family:inherit;
+  font-size:inherit;
+  font-style:inherit;
+  font-weight:inherit;
+}
+
+input,
+button,
+textarea,
+select {
+  font-size:100%;
+}
+
+/*
+ * FIX BUGS IN IE VERSIONS
+ */
+
+ul,
+ol,
+dl {
+  /* solve IE/Win "disappearing list background bug" */
+  position: relative;
+}
+
+/* reset default margins for some elements */
+p, ul, h1, h2, h3, h4, h5, h6, fieldset, legend {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Optimized "micro clearfix" hack (see http://nicolasgallagher.com/micro-clearfix-hack/)
+ *
+ * Addition of :before prevents top margins to collapse in modern browsers
+ */
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}

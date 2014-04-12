@@ -1,0 +1,10 @@
+dbusername=${dbusername}
+dbhost=${dbhost}
+dbname=${dbname}
+dbpassword=${dbpassword}
+dbport=${dbport}
+documentation=${documentation}
+host=${host}
+controlport=${controlport}
+workerport=${workerport}
+cache=${cache}

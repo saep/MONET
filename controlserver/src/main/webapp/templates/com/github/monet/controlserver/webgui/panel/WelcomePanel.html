@@ -1,0 +1,69 @@
+<html>
+<head>
+</head>
+<body>
+	<wicket:panel>
+	  <!-- begin(DASHBOARD) -->
+      <h2 id="hl_dashboard">Dashboard</h2>
+
+      <p id="teaser">
+        Welcome to MONET, a neat tool for Multi Objective Network optimization.
+      </p>
+      <div class="grid_row">
+        <div class="span_8">
+          <!-- user management not implemented during project group time -->
+          <!--section>
+            <h3>Overview</h3>
+            <p>
+              Hi X, <wicket:container wicket:id="welcomeMessage">[here comes the welcome message]</wicket:container>.
+            </p>
+          </section-->
+
+          <!-- begin(EXPLORE) -->
+          <section>
+            <h3>Explore</h3>
+            <ul id="list_explore_monet">
+              <li id="explore_experiments">
+                <b><a wicket:id="link.explore.explist" href="#">Experiments</a></b>: set up new experiments to compare some algorithms
+                regarding different performance measures, get an overview of experiments states and take a look at the results of the entire experiment or a single job.
+              </li>
+              <li id="explore_worker">
+                <b><a wicket:id="link.explore.workerlist" href="#">Worker</a></b>: register new worker nodes and get a detailed overview
+                of currently available workers. Moreover take a glance at the worker logs to identify problems.
+              </li>
+              <li id="explore_data_management">
+                <b><a wicket:id="link.explore.datamanagement" href="#">Data management</a></b>: upload and activate bundles as well as graph instances for your experiments.
+                This includes overviews of currently available bundles.
+              </li>
+              <li title="Documentation not available until now" id="explore_documentation">
+                <b><a wicket:id="link.explore.documentation" href="#">Documentation</a></b>: read the comprehensive documentation of the MONET platform and get help if you stuck at some point.
+              </li>
+            </ul>
+          </section>
+          <!-- end(EXPLORE) -->
+        </div>
+
+        <div class="span_8">
+          <section id="quickstart_guide">
+            <h3>About MONET</h3>
+
+            <p>
+            	This is a platform which was designed to facilitate the development and experimental comparison of (multi-objective) graph algorithms written in Java.
+            	<span class="box box_embedded_hint">
+					<b>Hint:</b> As of this writing, only java code is supported, but it is absolutely possible to include source code of any other language.
+            	</span>
+            	It offers a convenient, easy to learn and easy to master graphical user interface - based on a solid and powerful framework - for the <b>generation, observation and empirical comparison</b> of experiments.
+            </p>
+
+            <h4>Quickstart</h4>
+            <p>
+            	The MONET platform is based on stuff like experiments, jobs, workers and so on. This concepts are explained in detail in the <a wicket:id="link.documentation" href="#">MONET documentation</a>. Moreover there are helpful hints spread over the software which aim to help you if you get stuck at some place.
+            </p>
+
+          </section>
+        </div>
+      </div><!-- end(.grid_row) -->
+      <!-- end(DASHBOARD) -->
+	</wicket:panel>
+</body>
+</html>

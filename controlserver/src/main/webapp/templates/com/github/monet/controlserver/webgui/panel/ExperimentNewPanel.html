@@ -1,0 +1,73 @@
+<html>
+<head>
+</head>
+<body>
+	<wicket:panel>
+
+	    <h2 id="hl_experiment">Add experiment</h2>
+
+	   	<p class="box box_info">Confused? Setting up an experiment for the first time? Check out the <a href="#" title="get some help">MONet HowTo on setting up an experiment</a>.</p>
+
+	   	<p wicket:id="expNewNoAlgorithm"></p>
+
+	    <p><span wicket:id="expNewError"></span></p>
+
+		<form wicket:id="expNewForm" method="POST">
+			<section>
+
+                <fieldset class="span_8">
+                  <legend>
+                    Metadata
+                    <span>Specify a unique name and a thorough description to your experiments. This way you will easily retrieve it.</span>
+                  </legend>
+                  <!--
+                    Each form element, i. e., select, input, textarea, ..., must have a corresponding label.
+                    Beware that the for attribute of labels coincides with the id attribute of the associated form element.
+                  -->
+                  <p>
+                    <label for="input_name">Name</label>
+                    <span class="input_hint">A <em>unique</em> name for your experiment.</span>
+                    <input type="text" wicket:id="expNewInputId" id="input_name" />
+                  </p>
+                  <p>
+                    <label for="input_description">Description</label>
+                    <span class="input_hint">Should be a short, but meaningful text about the intention of your experiment.</span>
+                    <textarea wicket:id="expNewInputDescr" rows="8" col="20" id="input_description">Short description &hellip;</textarea>
+                  </p>
+                </fieldset>
+                <fieldset class="span_8">
+                  <legend>
+                    Experimental setup
+                    <span>
+                    	In this section you assign a priority, select an algorithm and set its parameters.
+                    </span>
+                  </legend>
+                  <p>
+                    <label for="input_priority">Assign a priority</label>
+                    <span class="input_hint">Experiments with high prority are preferred by available workers.</span>
+                    <input type="text" wicket:id="expNewInputPriority" id="input_priority" />
+                  </p>
+                  <p>
+                  	<label for="input_algorithm">Algorithm</label>
+                  	<span class="input_hint">Select the algorithm for this experiment.</span>
+                  	<select wicket:id="expNewInputAlgorithm" size="1" id="input_algorithm"></select>
+                  </p>
+                  <div wicket:id="expNewParameterContainer">
+                  	<div wicket:id="expNewInputParameters">
+                  		<div>
+	                  		<label wicket:id="expNewInputParameterName"></label>
+	                  		<input type="checkbox" wicket:id="expNewInputParameterCheckbox" />
+                  			<div wicket:id="expNewInputParameterDesc"></div>
+	                  		<input type="text" wicket:id="expNewInputParameterValue" />
+	                  		<div wicket:id="expNewInputParameterChoice"></div>
+                  			<div><i wicket:id="expNewInputParameterDefault"></i></div>
+                  		</div><br />
+                  	</div>
+                  </div>
+                </fieldset>
+                <input type="submit" class="btn btn_submit" wicket:id="expNewSubmit" value="Create experiment" />
+              </section>
+           </form>
+	</wicket:panel>
+</body>
+</html>

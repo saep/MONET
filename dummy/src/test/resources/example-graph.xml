@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<graph
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="bundle-description.xsd">
+	<name>Cool_Graph</name>
+	<description>
+		This graph is really cool, it can do magic things!
+	</description>
+	<instances>
+		<instance value="SSSP">
+			<parameter name="source">
+				<description>
+					Source of the single source shortest path graph.
+				</description>
+				<integer default="0"/>
+			</parameter>
+		</instance>
+		<instance value="MST"/>
+	</instances>
+</graph>

@@ -1,0 +1,76 @@
+<html>
+<head>
+</head>
+<body>
+	<wicket:panel>
+		<h2>Job details</h2>
+
+		<div wicket:id="notFound">
+			<p>The specified job was not found.</p>
+		</div>
+
+		<div wicket:id="container">
+			<table>
+				<tr>
+					<td><b>ID:</b></td>
+					<td wicket:id="id"></td>
+				</tr>
+				<tr>
+					<td><b>State:</b></td>
+					<td wicket:id="state"></td>
+				</tr>
+				<tr>
+					<td><b>Started:</b></td>
+					<td wicket:id="dateStarted"></td>
+				</tr>
+				<tr>
+					<td><b>Finished:</b></td>
+					<td wicket:id="dateFinished"></td>
+				</tr>
+				<tr>
+					<td><b>Worker:</b></td>
+					<td>
+						<a wicket:id="workerLink">
+							<span wicket:id="workerLabel"></span>
+						</a>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Graph:</b></td>
+					<td wicket:id="graph"></td>
+				</tr>
+				<tr>
+					<td><b>Parser:</b></td>
+					<td wicket:id="parser"></td>
+				</tr>
+				<tr valign="top">
+					<td><b>Parameters:</b></td>
+					<td wicket:id="parameters"></td>
+				</tr>
+			</table>
+		</div>
+
+		<p>
+			<a class="btn btn_small" wicket:id="linkback">Back to Experiment <b wicket:id="linkbackExperiment"></b></a>
+		</p>
+
+		<h2>Log</h2>
+		<div wicket:id="container.log">
+			<table id="log">
+				<thead>
+					<tr>
+						<th>Time</th>
+						<th>Message</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr wicket:id="list.log">
+						<td wicket:id="timestamp" width="60px"></td>
+						<td><a wicket:id="link.logdetails"><wicket:container wicket:id="message" /></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</wicket:panel>
+</body>
+</html>

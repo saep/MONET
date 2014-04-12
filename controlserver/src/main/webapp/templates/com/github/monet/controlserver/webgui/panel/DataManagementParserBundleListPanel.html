@@ -1,0 +1,28 @@
+<html>
+<head>
+</head>
+<body>
+	<wicket:panel>
+		<h2>List of parser bundles</h2>
+		<div wicket:id="container.list">
+			<table>
+	          <thead>
+	            <tr>
+	              <th>Name</th>
+	              <th>Version</th>
+	            </tr>
+	          </thead>
+	          <tbody>
+	            <tr wicket:id="list.parserbundle">
+	              <td wicket:id="label.name">[bundle name]</td>
+	              <td wicket:id="label.version">[bundle version]</td>
+	            </tr>
+	          </tbody>
+	        </table>
+	    </div>
+	    <div wicket:id="container.listempty">
+	    	<p>Currently there are no bundles in the database.<p>
+	    </div>
+	</wicket:panel>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<html>
+<head>
+</head>
+<body>
+	<wicket:panel>
+		<h2>Experiment details for <span wicket:id="header.exp.name"></span><span class="list_item_state state" wicket:id="header.state"></span></h2>
+
+		<p>This site provides you with a load of information concerning your experiment. Below you find the the <b>meta data of the experiment</b> and a <b>job summary</b>,
+		i. e., an overview of the states of the corresponding jobs. Moreover you have the possibility to (un)assign workers and prepare your experiment by choosing
+		an appropriate (graph) parser and the graph you want your algorithm to perform on.</p>
+
+		<p class="box box_info">Got stuck? Then it might be helpful to read the <a title="add the link please" href="#">documentation on experiments</a>.</p>
+
+		<div wicket:id="notFound">
+			<p>
+				The experiment
+				<span wicket:id="notFoundId" style="font-style:italic;">(ID)</span>
+				was not found.
+			</p>
+		</div>
+
+		<span wicket:id="expDetailsError"></span>
+
+		<div wicket:id="container">
+			<p class="options_panel">
+				<b>Choose an action: </b>
+				<a class="btn btn_small" wicket:id="linkbackTop">Back to experiments</a>
+				<a class="btn btn_small btn_important" wicket:id="linkResults">Show results</a>
+				<a class="btn btn_small btn_important" wicket:id="scheduleButton">Start this experiment</a>
+			</p>
+
+			<div class="grid_row">
+				<div class="span_8">
+					<table class="meta_description_table">
+						<caption>Experiment details</caption>
+						<tr>
+							<td><b>Name:</b></td>
+							<td wicket:id="name"></td>
+						</tr>
+						<tr valign="top">
+							<td><b>Description:</b></td>
+							<td wicket:id="description"></td>
+						</tr>
+						<tr>
+							<td><b>State:</b></td>
+							<td wicket:id="state"></td>
+						</tr>
+						<tr>
+							<td><b>Created:</b></td>
+							<td wicket:id="dateCreated"></td>
+						</tr>
+						<tr>
+							<td><b>Started:</b></td>
+							<td wicket:id="dateStarted"></td>
+						</tr>
+						<tr>
+							<td><b>Finished:</b></td>
+							<td wicket:id="dateFinished"></td>
+						</tr>
+						<tr>
+							<td><b>Priority:</b></td>
+							<td wicket:id="priority"></td>
+						</tr>
+						<tr>
+							<td><b>Algorithm:</b></td>
+							<td wicket:id="algorithm"></td>
+						</tr>
+						<tr valign="top">
+							<td><b>Parameters:</b></td>
+							<td wicket:id="parameters"></td>
+						</tr>
+					</table>
+				</div>
+
+				<div class="span_8">
+					<table class="meta_description_table">
+						<caption>Job summary</caption>
+						<tr>
+							<td><b>Number of jobs:</b></td>
+							<td id="numberOfJobs" wicket:id="sumCount" style="font-weight:bold;"></td>
+						</tr>
+						<tr>
+							<td><b>Running:</b></td>
+							<td wicket:id="sumRunning"></td>
+						</tr>
+						<tr>
+							<td><b>Initialized:</b></td>
+							<td wicket:id="sumInitialized"></td>
+						</tr>
+						<tr>
+							<td><b>Processed:</b></td>
+							<td wicket:id="sumProcessed"></td>
+						</tr>
+						<tr>
+							<td><b>Successful:</b></td>
+							<td id="numberOfSuccessfulJobs" wicket:id="sumSuccess"></td>
+						</tr>
+						<tr>
+							<td><b>Failed:</b></td>
+							<td id="numberOfFailedJobs" wicket:id="sumFailed"></td>
+						</tr>
+						<tr>
+							<td><b>Cancelled:</b></td>
+							<td wicket:id="sumCancelled"></td>
+						</tr>
+						<tr>
+							<td><b>Aborted:</b></td>
+							<td wicket:id="sumAborted"></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+
+			<div wicket:id="workerAnchor"><h2>Assigned workers</h2></div>
+			<div wicket:id="assignedNotFound">
+				<p>None. If you start this experiment without having assigned at
+				least one worker any available worker will be chosen automatically.</p>
+			</div>
+			<table wicket:id="assignedListViewTable">
+				<tr wicket:id="assignedListView">
+					<td>
+						<a wicket:id="assignedLink">
+							<span wicket:id="assignedLabel"></span>
+						</a>
+					</td>
+					<td>
+						<a wicket:id="assignedUnassign" class="btn btn_small">unassign</a>
+					</td>
+				</tr>
+			</table>
+
+			<form wicket:id="assignedForm" method="POST">
+				<p>
+					<label for="input_worker">Worker</label>
+					<select wicket:id="assignedDropdown"></select>
+				</p>
+				<p>
+					<input wicket:id="assignedButtonNew" type="submit"
+						class="btn btn_submit" value="Assign worker" />
+				</p>
+			</form>
+
+			<div wicket:id="jobListAnchor"><h2>Job list</h2></div>
+			<div wicket:id="jobNotFound"><p>No job found.</p></div>
+		<p id="list_view_filter_jobs" class="list_view_filter">
+          <b>Filter by state:</b>
+        </p>
+
+        <ul class="list_view" id="list_of_jobs" wicket:id="jobListViewTable">
+          <li wicket:id="jobListView">
+              <span class="state list_item_state" wicket:id="jobState">[job state]</span>
+
+              <div class="list_item_name">
+                <a class="list_item_link" wicket:id="jobLink"><h4 wicket:id="jobLabel">[job label]</h4></a>
+                <aside class="list_item_actions">
+                    <a wicket:id="jobLinkRemove" class="btn btn_small">remove</a>
+					<a wicket:id="jobCancel" class="btn btn_small">cancel</a>
+					<a wicket:id="jobLinkResults" class="btn btn_small">Show results</a>
+                </aside>
+              </div>
+          </li>
+        </ul>
+
+			<div class="box box_embedded_hint" wicket:id="jobFormInvisible"></div>
+			<form wicket:id="jobForm" method="POST">
+				<section>
+					<fieldset>
+						<legend>
+							Add a job
+							<span>
+								Provide a graph instance by selecting a <b>graph file</b> and a suitable <b>graph parser</b>.
+								Use the <b>copies</b> value to add this job several times.
+							</span>
+						</legend>
+						<div wicket:id="jobFormError"></div>
+						<p>
+							<label for="input_times">Copies</label>
+							<input wicket:id="jobInputTimes" type="text" id="input_times" />
+						</p>
+						<p>
+							<label for="input_graphFile">Graph file</label>
+							<select wicket:id="jobInputGraphFile" size="1" id="input_graphFile"></select>
+						</p>
+						<p>
+							<label for="input_graphParser">Graph parser</label>
+							<select wicket:id="jobInputGraphParser" size="1" id="input_graphParser"></select>
+	                  		<div wicket:id="parameterContainer">
+	                  			<div wicket:id="parameterException"></div>
+	                  			<div wicket:id="parameterContent">
+		                  			<label wicket:id="parameterLabel"></label>
+	                  				<input type="checkbox" wicket:id="parameterCheckbox" />
+		                  			<div wicket:id="parameterDesc"></div>
+	                  				<input type="text" wicket:id="parameterValue" />
+	                  				<div wicket:id="parameterChoice"></div>
+		                  			<div><i wicket:id="parameterDefault"></i></div><br />
+	                  			</div>
+	                  		</div>
+						</p>
+						<p>
+							<input wicket:id="jobButtonNew" type="submit" class="btn btn_submit" value="Add job" />
+						</p>
+					</fieldset>
+				</section>
+			</form>
+		</div>
+	</wicket:panel>
+</body>
+</html>
